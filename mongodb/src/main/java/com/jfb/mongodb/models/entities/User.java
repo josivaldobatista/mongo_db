@@ -1,6 +1,10 @@
 package com.jfb.mongodb.models.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
@@ -11,6 +15,9 @@ public class User {
   
   private String name;
   private String email;
+
+  @DBRef(lazy = true) // <- Anotação para referência dos posts desse usuário
+  public List<Post> posts = new ArrayList<>();
 
   public User() {
   }
