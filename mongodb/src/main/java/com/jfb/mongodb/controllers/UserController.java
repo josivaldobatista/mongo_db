@@ -3,6 +3,7 @@ package com.jfb.mongodb.controllers;
 import java.net.URI;
 import java.util.List;
 
+import com.jfb.mongodb.models.DTO.PostDTO;
 import com.jfb.mongodb.models.DTO.UserDTO;
 import com.jfb.mongodb.services.UserService;
 
@@ -55,5 +56,11 @@ public class UserController {
   public ResponseEntity<Void> delete(@PathVariable String id) {
     service.delete(id);
     return ResponseEntity.noContent().build();
+  }
+
+  @GetMapping("/{id}/posts")
+  public ResponseEntity<List<PostDTO>> getUserPosts(@PathVariable String id) {
+    List<PostDTO> list = service.getUserPosts(id);
+    return ResponseEntity.ok().body(list);
   }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.jfb.mongodb.models.DTO.PostDTO;
 import com.jfb.mongodb.models.DTO.UserDTO;
 import com.jfb.mongodb.models.entities.User;
 import com.jfb.mongodb.repositories.UserRepository;
@@ -45,6 +46,11 @@ public class UserService {
 	public void delete(String id) {
 		getEntityById(id);
 		repository.deleteById(id);
+	}
+
+	public List<PostDTO> getUserPosts(String id) {
+		User user = getEntityById(id);
+		return user.getPosts().stream().map(x -> new PostDTO(x)).collect(Collectors.toList());
 	}
 
 	private void copyDtoToEntity(UserDTO dto, User entity) {
