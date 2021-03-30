@@ -6,7 +6,9 @@ Contrução de uma API para estudos do Mongo DB usando os principais conceitos d
 
 ## Modelo Conceitual
 
+![Mobile 1](https://github.com/josivaldobatista/workshop-mongo_db/blob/main/assets/modelo_conceitual1)
 
+![Mobile 1](https://github.com/josivaldobatista/workshop-mongo_db/blob/main/assets/modelo_conceitual1)
 
 
 
